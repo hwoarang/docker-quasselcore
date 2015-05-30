@@ -1,14 +1,16 @@
 #!/bin/bash
 
-quassel_conf="/var/lib/quasselcore"
+certfile="/var/lib/quasselcore/quasselCert.pem"
 
 # Create the certificate
-openssl req -x509 -nodes -days 3650 -newkey rsa:4096 \
-	-keyout ${quassel_conf}/quasselCert.pem \
-	-out ${quassel_conf}/quasselCert.pem \
-	-batch || { echo "Failed to create the certificate"; exit 1; }
+if [[ ! -e ${certfile} ]]; then
+	openssl req -x509 -nodes -days 3650 -newkey rsa:4096 \
+		-keyout ${certfile} \
+		-out ${certfile} \
+		-batch || { echo "Failed to create the certificate"; exit 1; }
+fi
 
-chown -R quassel:quassel ${quassel_conf}/quasselCert.pem
+chown -R quassel:quassel ${certfile}
 
 params="$* --port=${QUASSEL_PORT}"
 
