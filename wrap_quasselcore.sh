@@ -1,6 +1,7 @@
 #!/bin/bash
 
-certfile="/var/lib/quasselcore/quasselCert.pem"
+confdir="/var/lib/quasselcore"
+certfile="${confdir}/quasselCert.pem"
 
 # Create the certificate
 if [[ ! -e ${certfile} ]]; then
@@ -10,7 +11,7 @@ if [[ ! -e ${certfile} ]]; then
 		-batch || { echo "Failed to create the certificate"; exit 1; }
 fi
 
-chown -R quassel:quassel ${certfile}
+chown -R quassel:quassel ${confdir}
 
 params="$* --port=${QUASSEL_PORT}"
 
