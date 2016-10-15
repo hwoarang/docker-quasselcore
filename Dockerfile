@@ -1,4 +1,4 @@
-FROM base/archlinux:2014.07.03
+FROM base/archlinux:latest
 MAINTAINER Markos Chandras <hwoarang@gentoo.org>
 
 # Lets just make sure we grab the latest quasselcore
