@@ -9,7 +9,7 @@ RUN zypper -n dup && zypper -n in quassel-core
 ADD wrap_quasselcore.sh /bin/
 
 # Create the configure directory. We do this here
-# because our container will be running as 'quassel' which
+# because our container will be running as 'quasselcore' which
 # will not have the privs to do it itself.
 RUN mkdir -p /var/lib/quasselcore && chown -R quasselcore:quasselcore /var/lib/quasselcore
 

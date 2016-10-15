@@ -11,8 +11,6 @@ if [[ ! -e ${certfile} ]]; then
 		-batch || { echo "Failed to create the certificate"; exit 1; }
 fi
 
-chown -R quasselcore:quasselcore ${confdir}
-
 params="$* --port=${QUASSEL_PORT}"
 
 echo "Starting quasselcore with ${params}"
