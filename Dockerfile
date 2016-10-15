@@ -3,7 +3,9 @@ MAINTAINER Markos Chandras <hwoarang@gentoo.org>
 
 # Lets just make sure we grab the latest quasselcore
 # with all the goodies
-RUN pacman -Syu --noconfirm && \
+RUN pacman-key --populate archlinux && \
+	pacman-key --refresh-keys && \
+	pacman -Syu --noconfirm && \
 	pacman-db-upgrade && \
 	pacman -S --noconfirm quassel-core
 
