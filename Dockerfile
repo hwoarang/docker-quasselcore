@@ -11,10 +11,10 @@ ADD wrap_quasselcore.sh /bin/
 # Create the configure directory. We do this here
 # because our container will be running as 'quassel' which
 # will not have the privs to do it itself.
-RUN mkdir -p /var/lib/quasselcore && chown -R quassel:quassel /var/lib/quasselcore
+RUN mkdir -p /var/lib/quasselcore && chown -R quasselcore:quasselcore /var/lib/quasselcore
 
 # Running USER
-USER quassel
+USER quasselcore
 
 # Allow users to override the default port
 ENV QUASSEL_PORT=4242
