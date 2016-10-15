@@ -1,13 +1,9 @@
-FROM base/archlinux:latest
+FROM opensuse:latest
 MAINTAINER Markos Chandras <hwoarang@gentoo.org>
 
 # Lets just make sure we grab the latest quasselcore
 # with all the goodies
-RUN pacman-key --populate archlinux && \
-	pacman-key --refresh-keys && \
-	pacman -Syu --noconfirm && \
-	pacman-db-upgrade && \
-	pacman -S --noconfirm quassel-core
+RUN zypper -n dup && zypper -n in quassel-core
 
 # Add our wrapper
 ADD wrap_quasselcore.sh /bin/
