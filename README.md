@@ -1,5 +1,5 @@
 # Summary
-Docker image files to create an openSUSE Leap Quassel core with SSL support.
+Docker image files to create an Debian Stretch Quassel core with SSL support.
 
 # Configuration
 
