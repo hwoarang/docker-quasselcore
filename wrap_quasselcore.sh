@@ -1,6 +1,6 @@
 #!/bin/bash
 
-confdir="/var/lib/quasselcore"
+confdir="/var/lib/quassel"
 certfile="${confdir}/quasselCert.pem"
 
 # Create the certificate

@@ -8,11 +8,6 @@ RUN apt-get update && apt-get install -y quassel-core
 # Add our wrapper
 ADD wrap_quasselcore.sh /bin/
 
-# Create the configure directory. We do this here
-# because our container will be running as 'quasselcore' which
-# will not have the privs to do it itself.
-RUN mkdir -p /var/lib/quasselcore && chown -R quasselcore:quassel /var/lib/quasselcore
-
 # Running USER
 USER quasselcore
 
@@ -22,7 +17,7 @@ ENV QUASSEL_PORT=4242
 # Default params. Probably worth enforcing SSL
 # in ENTRYPOINT later on.
 
-CMD ["--configdir=/var/lib/quasselcore", "--require-ssl"]
+CMD ["--configdir=/var/lib/quassel", "--require-ssl"]
 ENTRYPOINT ["wrap_quasselcore.sh"]
 
 # Expose the running port
